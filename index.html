@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño de Caja con Slider</title>
+    <style>
+   
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilo de la caja */
+        .caja {
+            width: 300px;
+            height: 200px;
+            background-color: #4CAF50; 
+            border: 5px solid #388E3C;
+            border-radius: 10px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+
+        .contenido {
+            text-align: center;
+        }
+
+        #texto {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .slider {
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <div class="contenido">
+            <p id="texto">¡Nivel de Felicidad!</p>
+            <input type="range" min="0" max="100" value="50" class="slider" id="miSlider">
+        </div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('miSlider');
+        const texto = document.getElementById('texto');
+        const caja = document.querySelector('.caja');
+
+        slider.addEventListener('input', () => {
+            const valor = slider.value;
+
+            texto.textContent = `Valor: ${valor}`;
+
+            caja.style.backgroundColor = `rgb(${valor}, 150, 100)`;
+        });
+    </script>
+</body>
+</html>
